@@ -14,6 +14,7 @@
     .slide-in-left.visible { opacity: 1; transform: translateX(0); }
     .hover-scale { transition: transform 0.3s ease; }
     .hover-scale:hover { transform: scale(1.05); }
+    .post { margin-bottom: 2rem; }
   </style>
 </head>
 <body class="font-sans bg-gray-50">
@@ -39,7 +40,7 @@
 
   <section class="py-12 px-4 max-w-7xl mx-auto bg-gradient-to-b from-teal-50 to-white">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="blog-posts">
-      <!-- Posts will be injected here by Netlify CMS -->
+      <!-- Posts will be loaded here -->
     </div>
     <div class="mt-6 flex justify-between" id="pagination">
       <a href="#" id="prev-page" class="text-teal-600 hover:text-teal-800 hover-scale disabled:text-gray-400" style="display: none;">Précédent</a>
@@ -52,10 +53,52 @@
   </footer>
 
   <script>
-    // Placeholder for dynamic loading (to be enhanced with Netlify CMS)
+    async function loadBlogPosts(page = 1, perPage = 2) {
+      // Fetch Markdown files (simplified; requires a build step like Eleventy)
+      const response = await fetch('/blog');
+      const files = await response.text(); // Adjust for actual Markdown parsing
+      const posts = []; // Placeholder; parse Markdown files here
+      const start = (page - 1) * perPage;
+      const end = start + perPage;
+      const paginatedPosts = posts.slice(start, end);
+      const totalPages = Math.ceil(posts.length / perPage);
+
+      const postsDiv = document.getElementById('blog-posts');
+      postsDiv.innerHTML = '';
+
+      paginatedPosts.forEach(post => {
+        const div = document.createElement('div');
+        div.className = 'p-6 bg-white rounded-lg shadow-md slide-in-left';
+        div.innerHTML = `
+          <h3 class="text-xl font-semibold text-gray-900 mb-2">${post.title}</h3>
+          <img src="${post.featured_image}" alt="${post.title}" class="w-full h-48 object-cover mb-4">
+          <p class="text-gray-700 mb-4">${post.body.substring(0, 100)}...</p>
+          <p class="text-sm text-gray-500">${new Date(post.date).toLocaleDateString()}</p>
+          <a href="#" class="mt-2 inline-block text-teal-600 hover:text-teal-700 hover-scale">Lire plus</a>
+        `;
+        postsDiv.appendChild(div);
+      });
+
+      const prevPage = document.getElementById('prev-page');
+      const nextPage = document.getElementById('next-page');
+      prevPage.style.display = page > 1 ? 'inline-block' : 'none';
+      nextPage.style.display = page < totalPages ? 'inline-block' : 'none';
+
+      prevPage.href = `?page=${page - 1}`;
+      nextPage.href = `?page=${page + 1}`;
+    }
+
     document.addEventListener("DOMContentLoaded", function() {
-      const postsDiv = document.getElementById("blog-posts");
-      postsDiv.innerHTML = "<p>Aucun article pour l'instant. Ajoutez-en via le tableau de bord !</p>";
+      const urlParams = new URLSearchParams(window.location.search);
+      const page = parseInt(urlParams.get('page')) || 1;
+      loadBlogPosts(page);
+      const elements = document.querySelectorAll('.slide-in-left');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.1 });
+      elements.forEach(element => observer.observe(element));
     });
   </script>
 </body>
