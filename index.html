@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Serrurier professionnel à Marrakech, Maroc - Services de serrurerie d'urgence, installation de serrures haute sécurité, ouverture de portes, serrurerie automobile et serrures intelligentes. Interventions rapides et fiables 24h/24.">
+  <meta name="keywords" content="serrurier Marrakech, serrurier Maroc, locksmith Marrakech, locksmith Morocco, urgence serrurerie Marrakech, dépannage serrure, serrures haute sécurité, portes blindées, serrurier automobile, serrure connectée, serrurier pas cher Marrakech">
+  <title>Service Serrurier à Marrakech | Dépannage 24h/24 | Locksmith Service in Marrakech</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    /* Slide-up animation for hero text and buttons */
+    .slide-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.8s ease-out forwards;
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Hover scale effect */
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+    /* Navbar link hover effect */
+    .nav-link {
+      transition: color 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #2563eb;
+    }
+    /* Hero image dezoom animation */
+    .hero-image-dezoom {
+      transform: scale(1.2);
+      animation: dezoom 1.5s ease-out forwards;
+    }
+    @keyframes dezoom {
+      to {
+        transform: scale(1);
+      }
+    }
+    /* Slide-in-from-left for services */
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    /* Slide-up for section content */
+    .slide-up-section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .slide-up-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Mobile menu sidebar */
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #1f2937; /* gray-800 */
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 50;
+      padding: 1rem;
+    }
+    #mobile-menu.open {
+      transform: translateX(0);
+    }
+    /* Overlay for closing menu on page click */
+    #menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 40;
+    }
+    #menu-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Navigation Bar -->
+  <nav class="bg-gray-800 text-white py-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold">Serrurier Pro</a>
+      <div class="hidden md:flex space-x-6">
+        <a href="/" class="nav-link">Accueil</a>
+        <a href="/services" class="nav-link">Services</a>
+        <a href="/about" class="nav-link">À Propos</a>
+        <a href="/contact" class="nav-link">Contact</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu" class="md:hidden">
+      <a href="/" class="block py-2 nav-link text-white">Accueil</a>
+      <a href="/services" class="block py-2 nav-link text-white">Services</a>
+      <a href="/about" class="block py-2 nav-link text-white">À Propos</a>
+      <a href="/contact" class="block py-2 nav-link text-white">Contact</a>
+    </div>
+    <!-- Overlay for closing menu -->
+    <div id="menu-overlay" class="md:hidden"></div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gray-900 text-white">
+    <img id="hero-image" src="https://via.placeholder.com/1920x600?text=Serrurier+Hero" alt="Serrurier professionnel travaillant sur une serrure - Professional locksmith working on a lock - تركيب وصيانة أقفال" class="w-full h-[400px] object-cover opacity-50">
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 slide-up">Serrurier Professionnel</h1>
+      <p class="text-lg md:text-xl mb-6 slide-up" style="animation-delay: 0.2s;">Services rapides et fiables pour vos serrures et portes.</p>
+      <div class="flex space-x-4 slide-up" style="animation-delay: 0.4s;">
+        <a href="/contact" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded hover-scale">Contactez-nous</a>
+        <a href="/emergency" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded hover-scale">Service d'Urgence</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-12 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8 slide-up-section">Nos Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="p-6 border rounded-lg shadow-sm slide-in-left" style="transition-delay: 0s;">
+        <img src="https://via.placeholder.com/300x200?text=Serrures+Haute+Sécurité" alt="Installation et Entretien de Serrures de Haute Sécurité - High-defense locks - تركيب وصيانة أقفال عالية الأمان" class="w-full h-40 object-cover mb-4 rounded">
+        <h3 class="text-xl font-semibold">Serrures de Haute Sécurité</h3>
+        <p>Installation et entretien de serrures haute sécurité pour maison ou bureau.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow-sm slide-in-left" style="transition-delay: 0.1s;">
+        <img src="https://via.placeholder.com/300x200?text=Portes+Résidentielles" alt="Rénovation de Portes et Réparation de Serrures à Domicile - Door renovation - تجديد الأبواب وإصلاح الأقفال المنزلية" class="w-full h-40 object-cover mb-4 rounded">
+        <h3 class="text-xl font-semibold">Rénovation de Portes</h3>
+        <p>Réparation et remplacement de serrures à domicile pour portes résidentielles.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow-sm slide-in-left" style="transition-delay: 0.2s;">
+        <img src="https://via.placeholder.com/300x200?text=Serrurerie+Automobile" alt="Services de Serrurerie Automobile - Automotive locksmith - خدمات أقفال السيارات" class="w-full h-40 object-cover mb-4 rounded">
+        <h3 class="text-xl font-semibold">Serrurerie Automobile</h3>
+        <p>Ouverture, réparation et remplacement de serrures pour véhicules.</p>
+      </div>
+      <div class="p-6 border rounded-lg shadow-sm slide-in-left" style="transition-delay: 0.3s;">
+        <img src="https://via.placeholder.com/300x200?text=Serrures+Intelligentes" alt="Installation de Serrures Intelligentes Connectées - Smart locks - تركيب الأقفال الذكية المتصلة" class="w-full h-40 object-cover mb-4 rounded">
+        <h3 class="text-xl font-semibold">Serrures Intelligentes</h3>
+        <p>Installation de serrures connectées pour un contrôle d'accès moderne.</p>
+      </div>
+    </div>
+    <div class="text-center mt-8 slide-up-section">
+      <a href="/services" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded hover-scale">En Savoir Plus</a>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="py-12 px-4 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-8 slide-up-section">Avis de Nos Clients</h2>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="p-6 bg-white rounded-lg shadow-sm slide-up-section" style="transition-delay: 0s;">
+        <p class="italic">"Service rapide et professionnel ! Ma serrure intelligente a été installée en un rien de temps."</p>
+        <p class="mt-4 font-semibold">— Marie D.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-sm slide-up-section" style="transition-delay: 0.1s;">
+        <p class="italic">"Ouverture de ma voiture sans dommage, je recommande vivement !"</p>
+        <p class="mt-4 font-semibold">— Ahmed B.</p>
+      </div>
+      <div class="p-6 bg-white rounded-lg shadow-sm slide-up-section" style="transition-delay: 0.2s;">
+        <p class="italic">"Réparation de ma porte d’entrée impeccable, équipe très compétente."</p>
+        <p class="mt-4 font-semibold">— Sophie L.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Google Maps Section -->
+  <section class="py-12 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-8 slide-up-section">Nous Trouver</h2>
+    <div class="w-full h-96 slide-up-section">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.95373531531676!3d-37.81627927975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzU4LjIiUyAxNDTCsDU3JzEzLjUiRQ!5e0!3m2!1sen!2sau!4v1634021234567" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" title="Emplacement du serrurier - Locksmith location - موقع الإقفال"></iframe>
+    </div>
+  </section>
+
+  <!-- Fiche d'Établissement -->
+  <section class="py-12 px-4 bg-gray-100">
+    <h2 class="text-3xl font-bold text-center mb-8 slide-up-section">Fiche d'Établissement</h2>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 slide-up-section">
+      <!-- French Column -->
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold mb-4">Français</h3>
+        <p><strong>Serrurier Professionnel</strong></p>
+        <p>Adresse : [Votre adresse ici], Maroc</p>
+        <p>Téléphone : [Votre numéro ici]</p>
+        <p>Email : [Votre email ici]</p>
+        <p>Registre de Commerce : [Votre numéro RC ici]</p>
+        <p>Horaire : Lundi - Samedi, 8h00 - 20h00</p>
+      </div>
+      <!-- English Column -->
+      <div class="text-center">
+        <h3 class="text-2xl font-semibold mb-4">English</h3>
+        <p><strong>Professional Locksmith</strong></p>
+        <p>Address: [Your address here], Morocco</p>
+        <p>Phone: [Your phone number here]</p>
+        <p>Email: [Your email here]</p>
+        <p>Commercial Registry: [Your RC number here]</p>
+        <p>Hours: Monday - Saturday, 8:00 AM - 8:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center slide-up-section">
+    <p>© 2025 Serrurier Professionnel. Tous droits réservés. | Professional Locksmith Services</p>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu, Scroll Animations, and Hero Dezoom -->
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const body = document.body;
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+      menuOverlay.classList.toggle('open');
+      body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Close menu on overlay click
+    menuOverlay.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      menuOverlay.classList.remove('open');
+      body.style.overflow = '';
+    });
+
+    // Close menu on nav link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuOverlay.classList.remove('open');
+        body.style.overflow = '';
+      });
+    });
+
+    // Prevent overlay clicks from propagating to body
+    mobileMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // Scroll-based animations
+    const elements = document.querySelectorAll('.slide-in-left, .slide-up-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    elements.forEach(element => {
+      observer.observe(element);
+    });
+
+    // Hero image dezoom animation control
+    const heroImage = document.getElementById('hero-image');
+    let loadCount = parseInt(localStorage.getItem('heroLoadCount') || '0');
+    if (loadCount < 2) {
+      heroImage.classList.add('hero-image-dezoom');
+      loadCount++;
+      localStorage.setItem('heroLoadCount', loadCount);
+    } else {
+      localStorage.removeItem('heroLoadCount'); // Reset for future visits
+    }
+  </script>
+</body>
+</html>
